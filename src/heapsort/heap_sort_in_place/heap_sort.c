@@ -66,10 +66,40 @@ size_t maximum_child(Element* data, size_t size, size_t cur) {
  * Heapsort-specific functions
  */
 
-// TODO: sift_down_at
+void sift_down_at(Element* data, size_t size, size_t i) {
+    size_t cur = i;
 
-// TODO: heapify
+    while (has_left(size, cur)) {
+        size_t max_child = maximum_child(data, size, cur);
 
-// TODO: heapsort
+        if (element_compare(get(data, size, cur), get(data, size, max_child)) >= 0) {
+            return;
+        }
+
+        swap_at(data, cur, max_child);
+        cur = max_child;
+    }
+}
+
+void heapify(Element* data, size_t size) {
+    if (size < 2) {
+        return;
+    }
+
+    for (size_t i = parent(size - 1) + 1; i > 0; i--) { // add 1 to avoid underflow
+        sift_down_at(data, size, i - 1);
+    }
+}
+
+void heapsort(Element* data, size_t size) {
+    size_t heap_size = size;
+
+    heapify(data, heap_size);
+    for (size_t i = 0; i < size; i++) {
+        swap_at(data, 0, heap_size - 1);
+        heap_size--;
+        sift_down_at(data, heap_size, 0);
+    }
+}
 
 

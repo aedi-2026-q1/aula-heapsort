@@ -3,6 +3,6 @@
 
 #include "element.h"
 
-void selectionSort(Element* arr, int n);
+void selection_sort(Element* arr, int n);
 
 #endif

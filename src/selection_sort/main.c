@@ -15,7 +15,7 @@ int main() {
     int aSize = 1;
 
     printArray(a, aSize);
-    selectionSort(a, aSize);
+    selection_sort(a, aSize);
     printArray(a, aSize);
 
     printf("\n");
@@ -24,7 +24,7 @@ int main() {
     int bSize = 2;
 
     printArray(b, bSize);
-    selectionSort(b, bSize);
+    selection_sort(b, bSize);
     printArray(b, bSize);
 
     printf("\n");
@@ -33,7 +33,7 @@ int main() {
     int cSize = 5;
 
     printArray(c, cSize);
-    selectionSort(c, cSize);
+    selection_sort(c, cSize);
     printArray(c, cSize);
 
     return 0;
